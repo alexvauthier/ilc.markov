@@ -10,12 +10,16 @@ public class MarkovWord {
 	public MarkovWord() {
 
 	}
+        
+        public MarkovWord(String dataWord, int n) {
+            data = (ArrayList<MarkovData>)processString(dataWord,n);
+	}
 
 	public double getSimilarity(String wordOne, String wordTwo, int n) {
 		List<MarkovData> res1 = processString(wordOne, n);
-		// displayResult(res1);
+		 displayResult(res1);
 		List<MarkovData> res2 = processString(wordTwo, n);
-		// displayResult(res2);
+		 displayResult(res2);
 		int c = common(res1, res2);
 		int u = union(res1, res2);
 		double sim = (double) c / (double) u;
@@ -92,4 +96,6 @@ public class MarkovWord {
 			System.out.println(d.get(i).theWord + " occurred " + d.get(i).theCount + " times");
 		}
 	}
+        
+        
 }
